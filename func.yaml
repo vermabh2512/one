@@ -1,0 +1,31 @@
+version: 0.0.0
+name: one
+namespace: ""
+runtime: go
+registry: ""
+image: ""
+imageDigest: ""
+build: git
+git: 
+  url: https://github.com/vermabh2512/one.git
+  revision: main
+builder: gcr.io/paketo-buildpacks/builder:base
+builders:
+  base: gcr.io/paketo-buildpacks/builder:base
+  default: gcr.io/paketo-buildpacks/builder:base
+  full: gcr.io/paketo-buildpacks/builder:full
+buildpacks:
+- paketo-buildpacks/go-dist
+- ghcr.io/boson-project/go-function-buildpack:tip
+volumes: []
+buildEnvs: []
+envs: []
+annotations: {}
+options: {}
+labels: []
+healthEndpoints:
+  liveness: /health/liveness
+  readiness: /health/readiness
+created: 2022-04-28T11:07:31.190836+05:30
+invocation:
+  format: http
